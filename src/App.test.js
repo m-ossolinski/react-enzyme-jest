@@ -5,6 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
 
 import App, { Link } from './App';
+import { jsxEmptyExpression } from '@babel/types';
 
 configure({ adapter: new Adapter() });
 
@@ -38,6 +39,19 @@ describe('<App />', () => {
     expect(wrapper.find('h2').text()).toBe('');
     input.simulate('change', {target: { value: 'Mateusz' }});
     expect(wrapper.find('h2').text()).toBe('Mateusz');
+  })
+  it('calls component did mount, updates p tag', () => {
+    jest.spyOn(App.prototype, 'componentDidMount')
+    const wrapper = shallow(<App />);
+    expect(App.prototype.componentDidMount.mock.calls.length).toBe(1)
+    expect(wrapper.find('.lifecycle').text()).toBe('componentDidMount')
+  })
+  it('set props calls componentWillReceiveProps', () => {
+    jest.spyOn(App.prototype, 'componentWillReceiveProps')
+    const wrapper = shallow(<App />)
+    wrapper.setProps({ hide: true })
+    expect(App.prototype.componentWillReceiveProps.mock.calls.length).toBe(1)
+    expect(wrapper.find('.lifecycle').text()).toBe('componentWillReceiveProps');
   })
 })
 

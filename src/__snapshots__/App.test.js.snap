@@ -48,5 +48,8 @@ exports[`<App /> matches the snapshop 1`] = `
   >
     Red blue color
   </h3>
+  <p
+    className="lifecycle"
+  />
 </div>
 `;
