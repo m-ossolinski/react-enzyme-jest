@@ -28,5 +28,25 @@ exports[`<App /> matches the snapshop 1`] = `
       Learn React
     </a>
   </header>
+  <p
+    className="button-state"
+  >
+    No!
+  </p>
+  <button
+    onClick={[Function]}
+  >
+    Click
+  </button>
+  <h2 />
+  <input
+    onChange={[Function]}
+    type="text"
+  />
+  <h3
+    className="blue"
+  >
+    Red blue color
+  </h3>
 </div>
 `;
