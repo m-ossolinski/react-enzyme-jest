@@ -44,7 +44,7 @@ describe('<App />', () => {
     jest.spyOn(App.prototype, 'componentDidMount')
     const wrapper = shallow(<App />);
     expect(App.prototype.componentDidMount.mock.calls.length).toBe(1)
-    expect(wrapper.find('.lifecycle').text()).toBe('componentDidMount')
+    expect(wrapper.find('.lifecycle1').text()).toBe('componentDidMount')
   })
   it('set props calls componentWillReceiveProps', () => {
     jest.spyOn(App.prototype, 'componentWillReceiveProps')
@@ -52,6 +52,13 @@ describe('<App />', () => {
     wrapper.setProps({ hide: true })
     expect(App.prototype.componentWillReceiveProps.mock.calls.length).toBe(1)
     expect(wrapper.find('.lifecycle').text()).toBe('componentWillReceiveProps');
+  })
+  it('handleStrings function returns correctly', () => {
+    const wrapper = shallow(<App />)
+    const trueReturn = wrapper.instance().handleStrings('Hello world')
+    const falseReturn = wrapper.instance().handleStrings('')
+    expect(trueReturn).toBe(true)
+    expect(falseReturn).toBe(false)
   })
 })
 

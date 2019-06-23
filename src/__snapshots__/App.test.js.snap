@@ -49,7 +49,14 @@ exports[`<App /> matches the snapshop 1`] = `
     Red blue color
   </h3>
   <p
+    className="lifecycle1"
+  >
+    componentDidMount
+  </p>
+  <p
     className="lifecycle"
-  />
+  >
+    componentDidMount
+  </p>
 </div>
 `;
