@@ -29,7 +29,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <TodoList />
         <Form />
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />

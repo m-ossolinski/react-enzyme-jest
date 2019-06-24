@@ -4,6 +4,7 @@ exports[`<App /> matches the snapshop 1`] = `
 <div
   className="App"
 >
+  <Connect(TodoList) />
   <Form />
   <header
     className="App-header"
